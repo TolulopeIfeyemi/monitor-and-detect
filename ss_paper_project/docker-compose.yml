@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  web:
+    image: vulnerables/web-dvwa
+    ports:
+      - "8080:80"
+    container_name: dvwa
+
+  # monitor:
+  #   build: ./monitor
+  #   container_name: monitor
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   depends_on:
+  #     - web
+  
+  # falco:
+  #   image: falcosecurity/falco:latest
+  #   privileged: true
+  #   volumes:
+  #     - /var/run/docker.sock:/host/var/run/docker.sock
+  #     - /dev:/host/dev
+  #     - /proc:/host/proc:ro
+  #     - /boot:/host/boot:ro
+  #     - /lib/modules:/host/lib/modules:ro
+  #     - /usr:/host/usr:ro
+  #   command: falco -o json_output=true
